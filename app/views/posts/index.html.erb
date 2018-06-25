@@ -1,0 +1,19 @@
+<h1>게시판</h1>
+<p><a href="/posts/new">새글쓰기</a></p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>제목</th>
+        <th>날짜</th>
+    </tr>
+    <% @posts.each do |p| %>
+        <tr>
+            <td><%= p.id %></td>
+            <td><a href="/posts/show/<%= p.id %>"><%= p.title %></td>
+            <td><%= time_ago_in_words(p.created_at) %></td>
+            
+        </tr>
+    <% end %>
+    
+</table>
